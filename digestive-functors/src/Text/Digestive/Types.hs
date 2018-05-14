@@ -10,6 +10,7 @@ module Text.Digestive.Types
     , toPath
     , fromPath
     , Method (..)
+    , FileInfo (..)
     , FormInput (..)
     , Env
     ) where
@@ -87,10 +88,22 @@ data Method = Get | Post
 
 
 --------------------------------------------------------------------------------
+-- | File upload information
+data FileInfo = FileInfo
+  { fileName :: FilePath
+    -- ^ The name of the uploaded file.
+  , fileContentType :: T.Text
+    -- ^ The file's MIME type.
+  , filePath :: FilePath
+    -- ^ The path to the uploaded file in temporary storage.
+  } deriving (Show)
+
+
+--------------------------------------------------------------------------------
 -- | The different input types sent by the browser
 data FormInput
     = TextInput Text
-    | FileInput FilePath
+    | FileInput FileInfo
     deriving (Show)
 
 

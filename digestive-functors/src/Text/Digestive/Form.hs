@@ -299,7 +299,7 @@ bool = Pure . Bool . fromMaybe False
 
 --------------------------------------------------------------------------------
 -- | Returns a 'Formlet' for file selection
-file :: (Monad m, Monoid v) => Form v m (Maybe FilePath)
+file :: (Monad m, Monoid v) => Form v m (Maybe FileInfo)
 file = listToMaybe <$> Pure File
 
 
@@ -307,7 +307,7 @@ file = listToMaybe <$> Pure File
 -- | Returns a 'Formlet' for multiple file selection.  Intended for use with
 -- the @multiple@ attribute, which allows for multiple files to be uploaded
 -- with a single input element.
-fileMultiple :: (Monad m, Monoid v) => Form v m [FilePath]
+fileMultiple :: (Monad m, Monoid v) => Form v m [FileInfo]
 fileMultiple = Pure File
 
 

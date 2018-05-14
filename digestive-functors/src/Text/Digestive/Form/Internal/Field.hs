@@ -34,7 +34,7 @@ data Field v a where
     -- The return value has the actual value as well as the index in the list.
     Choice    :: [(Text, [(Text, (a, v))])] -> [Int] -> Field v [(a, Int)]
     Bool      :: Bool -> Field v Bool
-    File      :: Field v [FilePath]
+    File      :: Field v [FileInfo]
 
 
 --------------------------------------------------------------------------------
